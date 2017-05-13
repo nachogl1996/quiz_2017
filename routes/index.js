@@ -17,6 +17,9 @@ router.get('/help', function(req, res, next) {
     res.render('help');
 });
 
+//Autoload para rutas que usen :quizId
+router.param('quizId', quizController.load);
+
 //Definicion de rutas de /quizzes
 router.get('/quizzes', quizController.index); //Cuando llega una peticion para quizcontroller
 router.get('/quizzes/:quizId(\\d+)', quizController.show);//Cuando se pide ver una pregunta

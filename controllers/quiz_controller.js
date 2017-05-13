@@ -1,23 +1,28 @@
 var models = require("../models");
 
+//Autoload el quiz asociado a :quizId
+exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la peticion que es quiz, solo si existe
+    var quiz = models.Quiz.findById(Number(quizId));
+    if(quiz){
+        req.quiz = quiz;
+        next();
+    } else {
+        throw new Error('No existe ningún quiz con id=' + quizId);
+    }
+};
+
+
 //GET /quizzes 
 exports.index = function (req, res, next) {
     var quiz = models.Quiz.findAll();//Extraemos todas las preguntas de la BBDD y las mostramos
 
     res.render('quizzes/index', {quiz: quiz});
 };
+
 //GET /quizzes/:quizId
 exports.show=function (req, res, next) {
 
-    var quizId = Number(req.params.quizId);//Obtenemos en id del quiz pedido
-
-    var quiz = models.Quiz.findById(quizId);//A partir del id obtenemos la pregunta de la base de datos
-
-    if(quiz){
-        res.render('quizzes/show', {quiz: quiz});//Si existe se muestra
-    } else {
-        next(new Error('No existe ningún quiz con id=' + quizId));//Si no -> ERROR .
-    }
+   res.render('quizzes/show', {quiz: req.quiz});
 };
 
 //GET /quizzes/new
@@ -47,69 +52,37 @@ exports.create = function (req, res, next) {//funcion que a partir de los datos 
 // GET /quizzes/:quizId/edit
 exports.edit = function (req, res, next) {
 
-    var quizId = Number(req.params.quizId);  //Extraemos el id y el quiz
-    var quiz = models.Quiz.findById(quizId); //que el usuario quiere editar
-
-    if(quiz){//Comprobamos que exista el quiz y mandamos al usuario a
-        res.render('quizzes/edit', {quiz: quiz});//la pagina de edicion
-
-    } else {
-        next(new Error('No existe ningún quiz con id=' + quizId));//Si no -> ERROR .
-    }
+    res.render('quizzes/edit', {quiz: req.quiz});
 };
 
 // PUT /quizzes/:quizId
 exports.update = function (req, res, next) {
 
-    var quizId = Number(req.params.quizId);//Extraemos el id del quiz y la pregunta
+    req.quiz.question = req.body.question;
+    req.quiz.answer = req.body.answer;
 
-    var quiz = models.Quiz.findById(quizId);
+    models.Quiz.update(req.quiz);
 
-    if (quiz) {//Si el quiz no esta vacio actualizamos la base de datos a partir
-        quiz.question = req.body.question;//de los datos que ha rellenado el usuario
-        quiz.answer = req.body.answer;//en e formulaio
-
-        models.Quiz.update(quiz);
-
-        res.redirect('/quizzes/' + quizId);
-    } else {
-        next(new Error('No existe ningún quiz con id=' + quizId));
-    }
+    res.redirect('/quizzes/' + req.quiz.id);
 };
 
 // DELETE /quizzes/:quizId
 exports.destroy = function (req, res, next) {
 
-    var quizId = Number(req.params.quizId); //Recuperamos el id del quiz que el usuario desea borrar
+    models.Quiz.destroy(req.quiz);
 
-    var quiz = models.Quiz.findById(quizId);//A partir del Id obtenemos cual es el quiz
-
-    if (quiz) {
-        models.Quiz.destroy(quiz); //Si quiz existe, lo borramos
-
-        res.redirect('/quizzes');//Vokvemos a la pagina de inicio
-    } else {
-        next(new Error('No existe ningún quiz con id=' + quizId));
-    }
+    res.redirect('/quizzes');
 };
 
 // GET /quizzes/:quizId/play
 exports.play = function (req, res, next) {
 
     var answer = req.query.answer || ''; //Recuperamos la respuesta introducida por el usuario
-
-    var quizId = Number(req.params.quizId); //Recuperamos el id del quiz en juego
-
-    var quiz = models.Quiz.findById(quizId);//Recuperamos el quiz en juego
-
-    if (quiz) {
-        res.render('quizzes/play', {
-            quiz: quiz,
+    res.render('quizzes/play', {
+            quiz: req.quiz,
             answer: answer
         });
-    } else {
-        next(new Error('No existe ningún quiz con id=' + quizId));
-    }
+
 };
 
 
@@ -118,19 +91,12 @@ exports.check = function (req, res, next) {
 
     var answer = req.query.answer || "";
 
-    var quizId = Number(req.params.quizId);
+    var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();//Si el usuario acierta -> true
 
-    var quiz = models.Quiz.findById(quizId);
-
-    var result = answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim();//Si el usuario acierta -> true
-
-    if (quiz) {
-        res.render('quizzes/result', {
-            quiz: quiz,
+    res.render('quizzes/result', {
+            quiz: req.quiz,
             result: result,
             answer: answer
         });
-    } else {
-        next(new Error('No existe ningún quiz con id=' + quizId));
-    }
+
 };
