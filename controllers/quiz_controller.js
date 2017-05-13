@@ -2,7 +2,7 @@ var models = require("../models");
 
 //GET /quizzes 
 exports.index = function (req, res, next) {
-    var quiz = models.Quiz.finAll();//Extraemos todas las preguntas de la BBDD y las mostramos
+    var quiz = models.Quiz.findAll();//Extraemos todas las preguntas de la BBDD y las mostramos
 
     res.render('quizzes/index', {quiz: quiz});
 };
