@@ -1,83 +1,16 @@
 
 // Modelo
-var quizzes = [//Preguntas con su quizId y su answer
-    {
-        id: 1,
-        question: "Capital de Italia",
-        answer: "Roma"
-    },
-    {
-        id: 2,
-        question: "Capital de Francia",
-        answer: "París"
-    },
-    {
-        id: 3,
-        question: "Capital de España",
-        answer: "Madrid"
-    },
-    {
-        id: 4,
-        question: "Capital de Portugal",
-        answer: "Lisboa"
-    }];
+module.exports = function (sequelize, DataTypes) { //Definimos el nombre de la tabla: Quiz
+    return sequelize.define('Quiz',
+        {
+            question: {//El campo question tiene que ser de tipo String
+                type: DataTypes.STRING,//y no puede estar vacio, en caso de que lo
+                validate: {notEmpty:{msg: "Falta pregunta"}}//este, sale el mensaje msg
+            },
+            answer: {//Pasa igual con answer
+                type: DataTypes.STRING,
+                validate: {notEmpty:{msg: "Falta respuesta"}}
+            } //Adicionalmente a estos campos estara el campo Id, que se autoincrementa.
+        });
 
-// Siguiente valor para id
-var nextId = quizzes.length + 1;
-
-//FUNCIONES QUE EJECUTAMOS
-
-//Create: crea un nuevo quiz
-exports.create= function (quiz) {
-
-     quiz = {
-        id: nextId++,//Le ponemos el siguiente quizId disponible
-        question: (quiz.question || "").trim(),//La pregunta es la del formulario, o en su defecto vacia
-        answer: (quiz.answer || "").trim()//El metodo trim() elimina los espacio en blanco
-    };
-
-    quizzes.push(quiz);
-
-    return quiz;
-};
-
-// Actualiza el quiz pasado como parametro.
-exports.update = function(quiz) {
-
-    var index = quizzes.findIndex(function (q) {
-        return quiz.id === q.id;
-    });
-
-    if (index >= 0) {
-        quizzes[index] = {
-            id: quiz.id,
-            question: (quiz.question || "").trim(),
-            answer: (quiz.answer || "").trim()
-        };
-    }
-};
-
-// Devuelve todos los quizzes
-exports.findAll = function() {
-    return quizzes;
-};
-
-// Busca un quiz por su id
-exports.findById = function(id) {
-
-    return quizzes.find(function(quiz) {
-        return quiz.id === id;
-    });
-};
-
-// Elimina un quiz
-exports.destroy = function(quiz) {
-
-    var index = quizzes.findIndex(function (q) {
-        return quiz.id === q.id;
-    });
-
-    if (index >= 0) {
-        quizzes.splice(index, 1);
-    }
 };

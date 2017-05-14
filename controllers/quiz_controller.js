@@ -1,22 +1,33 @@
 var models = require("../models");
-
+var Sequelize = require('sequelize');
 //Autoload el quiz asociado a :quizId
 exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la peticion que es quiz, solo si existe
-    var quiz = models.Quiz.findById(Number(quizId));
-    if(quiz){
-        req.quiz = quiz;
-        next();
-    } else {
-        throw new Error('No existe ningún quiz con id=' + quizId);
-    }
+    models.Quiz.findById(quizId)//Realizamos la consulta a la base de datos
+        .then(function (quiz) {//que nos devuelve un quiz, que es el que pasamos como parametro en la peticion
+            if(quiz){
+                req.quiz = quiz;
+                next();
+            } else {
+                throw new Error('No existe ningún quiz con id=' + quizId);
+            }
+        })
+        .catch(function (error) {
+            next(error);
+        });
+
 };
 
 
 //GET /quizzes 
 exports.index = function (req, res, next) {
-    var quiz = models.Quiz.findAll();//Extraemos todas las preguntas de la BBDD y las mostramos
-
-    res.render('quizzes/index', {quiz: quiz});
+    //Extraemos todas las preguntas de la BBDD y las mostramos
+    models.Quiz.findAll()
+        .then(function (quizzes) {
+            res.render('quizzes/index', {quizzes: quizzes});
+        })
+        .catch(function (error) {//Se activa si ocurre un error en el acceso a la base de datos
+            next(error);
+        });
 };
 
 //GET /quizzes/:quizId
@@ -35,18 +46,27 @@ exports.new = function (req, res, next) {//Funcion que se encarga de mandar al u
 //POST /quizzes
 exports.create = function (req, res, next) {//funcion que a partir de los datos rellenados por el usuario crea la pregunta
 
-    var quiz= {//Extraemos los datos que ha rellenado el usuario en el formulario
+    var quiz= models.Quiz.build({//Extraemos los datos que ha rellenado el usuario en el formulario
        question: req.body.question,
        answer: req.body.answer
-    };
+    });
 
-    if(!quiz.question || !quiz.answer){//Comprobamos si estan vacias
-        res.render('quizzes/new', {quiz: quiz});
-        return;
-    }
-    //Si no estan vacias subimos la pregunta a la BBDD
-    quiz=models.Quiz.create(quiz);
-    res.redirect('/quizzes/' + quiz.id);
+    //ahora guardamos los datos
+    quiz.save({fields: ["question", "answer"]})
+        .then(function (quiz) {
+            res.redirect('/quizzes/' + quiz.id);
+        })
+        .catch(Sequelize.ValidationError, function (error) {//Si algun dato no es correcto motramos en la consola los errores
+            console.log("Errores en el formulario:");
+            for (var i in error.errors){
+                console.log(error.errors[i].value);
+            }
+            res.render('quizzes/new', {quiz: quiz});
+        })
+        .catch(function (error) {
+            next(error);
+        });
+
 };
 
 // GET /quizzes/:quizId/edit
@@ -56,22 +76,39 @@ exports.edit = function (req, res, next) {
 };
 
 // PUT /quizzes/:quizId
-exports.update = function (req, res, next) {
+exports.update = function (req, res, next) {//Funcion que se encarga de actualizar los cambios
+//que ha realizado el usuario en una pregunta
+    req.quiz.question = req.body.question;//Recuperamos los valores del formulario
+    req.quiz.answer = req.body.answer; //Y los metemos en la respuesta
 
-    req.quiz.question = req.body.question;
-    req.quiz.answer = req.body.answer;
-
-    models.Quiz.update(req.quiz);
-
-    res.redirect('/quizzes/' + req.quiz.id);
+    req.quiz.save({fields: ["question", "answer"]})//Guardamos los campos en la BBDD
+        .then(function (quiz) {
+            res.redirect('/quizzes/' + req.quiz.id);
+        })
+        .catch (Sequelize.ValidationError, function (error) {//Si algun cajetin esta vacio
+            console.log("Errores en el formulario:");
+            for (var i in error.errors){
+                console.log(error.errors[i].value);
+            }
+            res.render('quizzes/edit', {quiz: req.quiz});//volvemos a mandar al usuario a edit
+        })//Para que corrija los errores
+        .catch(function (error) {
+            next(error);
+        });
 };
 
 // DELETE /quizzes/:quizId
 exports.destroy = function (req, res, next) {
 
-    models.Quiz.destroy(req.quiz);
+   req.quiz.destroy()//Destruimos el quiz de la BBDD
+       .then(function () {
+           res.redirect('/quizzes');//Volvemos al index de quizzes
+       })
+       .catch(function (error) {
+           next(error);
+       });
 
-    res.redirect('/quizzes');
+
 };
 
 // GET /quizzes/:quizId/play

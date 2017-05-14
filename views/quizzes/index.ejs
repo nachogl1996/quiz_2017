@@ -4,21 +4,21 @@
 </h1>
 
 <table>
-    <% for (var i in quiz) { %>
-    <% var quizzes = quiz[i]; %>
+    <% for (var i in quizzes) { %>
+    <% var quiz = quizzes[i]; %>
     <tr>
         <td>
-            <a href="/quizzes/<%= quizzes.id %>/play"><%= quizzes.question %></a>
+            <a href="/quizzes/<%= quiz.id %>/play"><%= quiz.question %></a>
         </td>
         <td>
-            <a href="/quizzes/<%= quizzes.id %>"><button>ver</button></a>
+            <a href="/quizzes/<%= quiz.id %>"><button>ver</button></a>
         </td>
         <td>
-            <a href="/quizzes/<%= quizzes.id %>/edit"><button>editar</button></a>
+            <a href="/quizzes/<%= quiz.id %>/edit"><button>editar</button></a>
         </td>
         <td>
-            <a href="/quizzes/<%= quizzes.id %>?_method=DELETE"
-               onClick="return confirm('Borrar: <%= quizzes.question %>');">
+            <a href="/quizzes/<%= quiz.id %>?_method=DELETE"
+               onClick="return confirm('Borrar: <%= quiz.question %>');">
                 <button>borrar</button>
             </a>
         </td>
