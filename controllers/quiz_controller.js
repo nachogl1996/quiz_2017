@@ -106,7 +106,7 @@ exports.destroy = function (req, res, next) {
 
    req.quiz.destroy()//Destruimos el quiz de la BBDD
        .then(function () {
-           req.flash('succes', 'Quiz borrado con exito');
+           req.flash('succes', 'Quiz borrado con exito.');
            res.redirect('/quizzes');//Volvemos al index de quizzes
        })
        .catch(function (error) {
