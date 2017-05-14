@@ -54,16 +54,18 @@ exports.create = function (req, res, next) {//funcion que a partir de los datos 
     //ahora guardamos los datos
     quiz.save({fields: ["question", "answer"]})
         .then(function (quiz) {
+            req.flash('success', 'Quiz creado con éxito');
             res.redirect('/quizzes/' + quiz.id);
         })
         .catch(Sequelize.ValidationError, function (error) {//Si algun dato no es correcto motramos en la consola los errores
-            console.log("Errores en el formulario:");
+            req.flash('error', 'Errores en el formulario:');
             for (var i in error.errors){
-                console.log(error.errors[i].value);
+                req.flash('error', error.errors[i].value);
             }
             res.render('quizzes/new', {quiz: quiz});
         })
         .catch(function (error) {
+            req.flash('error', 'Error al crear un  Quiz:' + error.message);
             next(error);
         });
 
@@ -83,16 +85,18 @@ exports.update = function (req, res, next) {//Funcion que se encarga de actualiz
 
     req.quiz.save({fields: ["question", "answer"]})//Guardamos los campos en la BBDD
         .then(function (quiz) {
+            req.flash('success', 'Quiz editado con éxito');
             res.redirect('/quizzes/' + req.quiz.id);
         })
         .catch (Sequelize.ValidationError, function (error) {//Si algun cajetin esta vacio
-            console.log("Errores en el formulario:");
+            req.flash('error', 'Errores en el formulario:');
             for (var i in error.errors){
-                console.log(error.errors[i].value);
+                req.flash('error', error.errors[i].value);
             }
             res.render('quizzes/edit', {quiz: req.quiz});//volvemos a mandar al usuario a edit
         })//Para que corrija los errores
         .catch(function (error) {
+            req.flash('error', 'Error al editar el  Quiz:' + error.message);
             next(error);
         });
 };
@@ -102,9 +106,11 @@ exports.destroy = function (req, res, next) {
 
    req.quiz.destroy()//Destruimos el quiz de la BBDD
        .then(function () {
+           req.flash('succes', 'Quiz borrado con exito');
            res.redirect('/quizzes');//Volvemos al index de quizzes
        })
        .catch(function (error) {
+           req.flash('error', 'Error al borrar el Quiz' + error.message);
            next(error);
        });
 
