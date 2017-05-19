@@ -47,6 +47,11 @@ body {
 a {
   color: #00B7FF;
 }
+.rigth {
+
+    float: right;
+}
+
 .wideRow {
     display: flex;
     flex-flow: row wrap;

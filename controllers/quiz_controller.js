@@ -22,7 +22,17 @@ exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la
 
 //GET /quizzes 
 exports.index = function (req, res, next) {
-    models.Quiz.count()
+
+    var countOptions = {};
+
+    //Busquedas:
+    var search = req.query.search || '';
+    if(search){
+        var search_like = "%" + search.replace(/ +/g,"%") + "%";
+
+        countOptions.where = {question: {like: search_like}};
+    }
+    models.Quiz.count(countOptions)
         .then(function (count) {
 
             //Elemento para paginacion
@@ -32,14 +42,17 @@ exports.index = function (req, res, next) {
             var pageno = parseInt(req.query.pageno) || 1;
             //Creamos un string para que pinte la botonera y se añade como variable al layout
             res.locals.paginate_control = paginate(count, itmes_per_page, pageno, req.url);
-            var findOptions = {
-                offset: itmes_per_page*(pageno-1),//Se hara un findAll que obtenga 10 quizzes
-                limit: itmes_per_page //a partir del offset
-            };
+            var findOptions = countOptions;
+
+            findOptions.offset = itmes_per_page*(pageno-1);
+            findOptions.limit = itmes_per_page;
             return models.Quiz.findAll(findOptions);
         })
         .then(function (quizzes) {
-            res.render('quizzes/index.ejs', {quizzes: quizzes});
+            res.render('quizzes/index.ejs', {
+                quizzes: quizzes,
+                search: search
+            });
         })
         .catch(function (error) {//Se activa si ocurre un error en el acceso a la base de datos
             next(error);
