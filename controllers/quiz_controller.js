@@ -1,5 +1,7 @@
 var models = require("../models");
 var Sequelize = require('sequelize');
+
+var paginate = require('../helpers/paginate').paginate;
 //Autoload el quiz asociado a :quizId
 exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la peticion que es quiz, solo si existe
     models.Quiz.findById(quizId)//Realizamos la consulta a la base de datos
@@ -20,10 +22,24 @@ exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la
 
 //GET /quizzes 
 exports.index = function (req, res, next) {
-    //Extraemos todas las preguntas de la BBDD y las mostramos
-    models.Quiz.findAll()
+    models.Quiz.count()
+        .then(function (count) {
+
+            //Elemento para paginacion
+            var itmes_per_page = 10;
+            //Extraemos el num de pagina a mostrar que viene en la query
+            //si no viene ninguno ponemos la primera pagina por defecto.
+            var pageno = parseInt(req.query.pageno) || 1;
+            //Creamos un string para que pinte la botonera y se añade como variable al layout
+            res.locals.paginate_control = paginate(count, itmes_per_page, pageno, req.url);
+            var findOptions = {
+                offset: itmes_per_page*(pageno-1),//Se hara un findAll que obtenga 10 quizzes
+                limit: itmes_per_page //a partir del offset
+            };
+            return models.Quiz.findAll(findOptions);
+        })
         .then(function (quizzes) {
-            res.render('quizzes/index', {quizzes: quizzes});
+            res.render('quizzes/index.ejs', {quizzes: quizzes});
         })
         .catch(function (error) {//Se activa si ocurre un error en el acceso a la base de datos
             next(error);
