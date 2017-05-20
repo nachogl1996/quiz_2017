@@ -16,7 +16,6 @@ router.get('/author', function(req, res, next) {
 router.get('/help', function(req, res, next) {
     res.render('help');
 });
-<<<<<<< HEAD
 
 //Autoload para rutas que usen :quizId
 router.param('quizId', quizController.load);
@@ -40,6 +39,4 @@ router.get('/quizzes/randomcheck/:quizId(\\d+)', quizController.randomcheck);
 //router.get('/quizzes/randomnone', quizController.randomnone);
 
 
-=======
->>>>>>> practica51
 module.exports = router;
