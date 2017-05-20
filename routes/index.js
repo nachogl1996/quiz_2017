@@ -32,4 +32,11 @@ router.delete('/quizzes/:quizId(\\d+)', quizController.destroy); //Funcion de el
 router.get('/quizzes/:quizId(\\d+)/play', quizController.play);//Se empieza a jugar
 router.get('/quizzes/:quizId(\\d+)/check', quizController.check);//Para comprobar si hemos acertado
 
+
+//Definicion de rutas de random
+router.get('/quizzes/randomplay', quizController.randomplay);
+router.get('/quizzes/randomcheck/:quizId(\\d+)', quizController.randomcheck);
+//router.get('/quizzes/randomnone', quizController.randomnone);
+
+
 module.exports = router;
