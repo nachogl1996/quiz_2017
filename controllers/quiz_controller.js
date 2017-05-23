@@ -186,13 +186,13 @@ exports.randomplay = function (req, res, next) {
         if(req.session.randomplay.resolved){
             var used = req.session.randomplay.resolved.length ? req.session.randomplay.resolved:[-1];
         } else {
-            var aux = []
+            var aux = [];
             req.session.randomplay.resolved=aux;
         }
     } else {
         var auxplay={};
         req.session.randomplay=auxplay;
-        var aux = []
+        var aux = [];
         req.session.randomplay.resolved=aux;
 
     }
@@ -231,6 +231,17 @@ exports.randomplay = function (req, res, next) {
 
 // GEt /quizzes/randomcheck
 exports.randomcheck = function (req, res, next) {
+    if(req.session.randomplay===undefined){
+        var auxplay={};
+        req.session.randomplay=auxplay;
+        var aux = [];
+        req.session.randomplay.resolved=aux;
+    }
+    if(req.session.randomplay.resolved===undefined){
+        var aux = [];
+        req.session.randomplay.resolved=aux;
+    }
+
     var answer = req.query.answer || "";
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();//Si el usuario acierta -> true
     if(result){
