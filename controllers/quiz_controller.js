@@ -235,6 +235,8 @@ exports.randomcheck = function (req, res, next) {
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();//Si el usuario acierta -> true
     if(result){
         req.session.randomplay.resolved.push(parseInt(req.quiz.id));
+    } else {
+        req.session.randomplay.resolved=[];
     }
 
 
