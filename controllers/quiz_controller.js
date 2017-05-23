@@ -241,7 +241,7 @@ exports.randomcheck = function (req, res, next) {
         var aux = [];
         req.session.randomplay.resolved=aux;
     }
-
+    var score =req.session.randomplay.resolved.length;
     var answer = req.query.answer || "";
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();//Si el usuario acierta -> true
     if(result){
@@ -250,7 +250,7 @@ exports.randomcheck = function (req, res, next) {
 
 
     res.render('quizzes/random_result', {
-        score: req.session.randomplay.resolved.length,
+        score: score,
         quizId: req.quiz.id,
         answer: answer,
         result: result
