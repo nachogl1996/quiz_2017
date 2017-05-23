@@ -5,15 +5,27 @@ var quizController = require('../controllers/quiz_controller')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+    if(req.session.randomplay){
+        req.session.randomplay.resolved=[];
+    }
+
+    res.render('index');
 });
 
 // Pagina de creditos
 router.get('/author', function(req, res, next) {
+    if(req.session.randomplay){
+        req.session.randomplay.resolved=[];
+    }
+
     res.render('author');
 });
 /* GET ayuda */
 router.get('/help', function(req, res, next) {
+    if(req.session.randomplay){
+        req.session.randomplay.resolved=[];
+    }
+
     res.render('help');
 });
 

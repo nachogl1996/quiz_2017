@@ -24,6 +24,9 @@ exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la
 
 //GET /quizzes 
 exports.index = function (req, res, next) {
+    if(req.session.randomplay){
+        req.session.randomplay.resolved=[];
+    }
 
     var countOptions = {};
 
@@ -78,6 +81,9 @@ exports.new = function (req, res, next) {//Funcion que se encarga de mandar al u
 
 //POST /quizzes
 exports.create = function (req, res, next) {//funcion que a partir de los datos rellenados por el usuario crea la pregunta
+    if(req.session.randomplay){
+        req.session.randomplay.resolved=[];
+    }
 
     var quiz= models.Quiz.build({//Extraemos los datos que ha rellenado el usuario en el formulario
        question: req.body.question,
