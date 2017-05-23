@@ -24,9 +24,6 @@ exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la
 
 //GET /quizzes 
 exports.index = function (req, res, next) {
-    if(req.session.randomplay){
-        req.session.randomplay.resolved=[];
-    }
 
     var countOptions = {};
 
@@ -81,9 +78,6 @@ exports.new = function (req, res, next) {//Funcion que se encarga de mandar al u
 
 //POST /quizzes
 exports.create = function (req, res, next) {//funcion que a partir de los datos rellenados por el usuario crea la pregunta
-    if(req.session.randomplay){
-        req.session.randomplay.resolved=[];
-    }
 
     var quiz= models.Quiz.build({//Extraemos los datos que ha rellenado el usuario en el formulario
        question: req.body.question,
@@ -192,13 +186,13 @@ exports.randomplay = function (req, res, next) {
         if(req.session.randomplay.resolved){
             var used = req.session.randomplay.resolved.length ? req.session.randomplay.resolved:[-1];
         } else {
-            var aux = [];
+            var aux = []
             req.session.randomplay.resolved=aux;
         }
     } else {
         var auxplay={};
         req.session.randomplay=auxplay;
-        var aux = [];
+        var aux = []
         req.session.randomplay.resolved=aux;
 
     }
@@ -237,17 +231,6 @@ exports.randomplay = function (req, res, next) {
 
 // GEt /quizzes/randomcheck
 exports.randomcheck = function (req, res, next) {
-    if(req.session.randomplay===undefined){
-        var auxplay={};
-        req.session.randomplay=auxplay;
-        var aux = [];
-        req.session.randomplay.resolved=aux;
-    }
-    if(req.session.randomplay.resolved===undefined){
-        var aux = [];
-        req.session.randomplay.resolved=aux;
-    }
-    var score =req.session.randomplay.resolved.length;
     var answer = req.query.answer || "";
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();//Si el usuario acierta -> true
     if(result){
@@ -256,7 +239,7 @@ exports.randomcheck = function (req, res, next) {
 
 
     res.render('quizzes/random_result', {
-        score: score,
+        score: req.session.randomplay.resolved.length,
         quizId: req.quiz.id,
         answer: answer,
         result: result
