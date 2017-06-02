@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var quizController = require('../controllers/quiz_controller')
+var quizController = require('../controllers/quiz_controller');
+var tipController = require('../controllers/tip_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -48,7 +49,9 @@ router.get('/quizzes/:quizId(\\d+)/check', quizController.check);//Para comproba
 //Definicion de rutas de random
 router.get('/quizzes/randomplay', quizController.randomplay);
 router.get('/quizzes/randomcheck/:quizId(\\d+)', quizController.randomcheck);
-//router.get('/quizzes/randomnone', quizController.randomnone);
+
+//Definicion de las rutas de tipcontroller
+router.post('/quizzes/:quizId(\\d+)/tips', tipController.create);
 
 
 module.exports = router;

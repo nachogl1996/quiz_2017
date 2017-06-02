@@ -1,4 +1,3 @@
-
 <h1>
     Jugar:
 </h1>
@@ -14,5 +13,17 @@
         <input type="submit" class="itemNarrow" value="Comprobar">
     </div>
 </form>
+
+
+<h1>
+    Pistas:
+</h1>
+
+<% include ../tips/new %>
+
+<% var tips = quiz.Tips; %>
+
+<% include ../tips/index %>
+
 
 <a href="/quizzes"><button>Volver</button></a>
