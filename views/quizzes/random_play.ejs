@@ -4,6 +4,7 @@
 
 <div>
     Preguntas acertadas = <span id="score"><%= score %></span>
+
 </div>
 
 <form method="get" action="/quizzes/randomcheck/<%= quiz.id %>">
@@ -17,4 +18,14 @@
         <input type="text" class="itemWide" id="answer" name="answer" value="" placeholder="Respuesta" autocomplete="off"/>
         <input type="submit" class="itemNarrow" id="send" value="Comprobar">
     </div>
+
 </form>
+<h1>
+    Pistas:
+</h1>
+<% var tips = quiz.Tips; %>
+
+<% include ../tips/index %>
+
+
+<a href="/quizzes"><button>Volver</button></a>
