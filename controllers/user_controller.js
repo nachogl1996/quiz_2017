@@ -98,7 +98,11 @@ exports.create = function (req, res, next) {
                 return user.save({fields: ["username", "password", "salt"]})
                     .then(function (user) { // Renderizar pagina de usuarios
                         req.flash('success', 'Usuario creado con éxito.');
-                        res.redirect('/users/' + user.id);
+                        if(req.session.user){
+                            res.redirect('/users/' + user.id);
+                        } else {
+                            res.redirect('session');
+                        }
                     })
                     .catch(Sequelize.ValidationError, function (error) {
                         req.flash('error', 'Errores en el formulario:');
@@ -161,7 +165,7 @@ exports.destroy = function (req, res, next) {
     req.user.destroy()
         .then(function () {
             req.flash('success', 'Usuario eliminado con éxito.');
-            res.redirect('/users');
+            res.redirect('/');
         })
         .catch(function (error) {
             next(error);
