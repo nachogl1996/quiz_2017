@@ -55,6 +55,8 @@ router.get('/users/:userId(\\d+)/edit', userController.edit);     // editar info
 router.put('/users/:userId(\\d+)',      userController.update);   // actualizar información de cuenta
 router.delete('/users/:userId(\\d+)',   userController.destroy);  // borrar cuenta
 
+router.get('/users/:userId(\\d+)/quizzes', quizController.index);     // ver las preguntas de un usuario
+
 //Definicion de rutas de /quizzes
 router.get('/quizzes', quizController.index); //Cuando llega una peticion para quizcontroller
 router.get('/quizzes/:quizId(\\d+)', quizController.show);//Cuando se pide ver una pregunta

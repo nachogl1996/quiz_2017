@@ -10,7 +10,7 @@ exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la
         include: [
             models.Tip,
             {model: models.User, as: 'Author'}
-            ]
+        ]
     })//Realizamos la consulta a la base de datos
         .then(function (quiz) {//que nos devuelve un quiz, que es el que pasamos como parametro en la peticion
             if(quiz){
@@ -30,8 +30,10 @@ exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la
 //GET /quizzes 
 exports.index = function (req, res, next) {
 
-    var countOptions = {};
-
+    var countOptions = {
+        where: {}
+    };
+    var title = "Preguntas";
     //Busquedas:
     var search = req.query.search || '';
     if(search){
@@ -39,9 +41,14 @@ exports.index = function (req, res, next) {
 
         countOptions.where = {question: {like: search_like}};
     }
+    if(req.user){//Si se accede mediante /user/id/quizzes
+        console.log("aaaaaaaaaa");
+        countOptions.where.AuthorId = req.user.id;
+        title = "Preguntas de " + req.user.username;
+    }
     models.Quiz.count(countOptions)
         .then(function (count) {
-
+            console.log(count);
             //Elemento para paginacion
             var itmes_per_page = 10;
             //Extraemos el num de pagina a mostrar que viene en la query
@@ -59,7 +66,8 @@ exports.index = function (req, res, next) {
         .then(function (quizzes) {
             res.render('quizzes/index.ejs', {
                 quizzes: quizzes,
-                search: search
+                search: search,
+                title: title
             });
         })
         .catch(function (error) {//Se activa si ocurre un error en el acceso a la base de datos
@@ -85,13 +93,17 @@ exports.new = function (req, res, next) {//Funcion que se encarga de mandar al u
 //POST /quizzes
 exports.create = function (req, res, next) {//funcion que a partir de los datos rellenados por el usuario crea la pregunta
 
+    var authorId = req.session.user && req.session.user.id || 0;
+
     var quiz= models.Quiz.build({//Extraemos los datos que ha rellenado el usuario en el formulario
        question: req.body.question,
-       answer: req.body.answer
+       answer: req.body.answer,
+       AuthorId: authorId
+
     });
 
     //ahora guardamos los datos
-    quiz.save({fields: ["question", "answer"]})
+    quiz.save({fields: ["question", "answer", "AuthorId"]})
         .then(function (quiz) {
             req.flash('success', 'Quiz creado con éxito');
             res.redirect('/quizzes/' + quiz.id);
