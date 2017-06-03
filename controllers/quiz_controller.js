@@ -6,7 +6,12 @@ var paginate = require('../helpers/paginate').paginate;
 
 //Autoload el quiz asociado a :quizId
 exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la peticion que es quiz, solo si existe
-    models.Quiz.findById(quizId, {include: [ models.Tip ]})//Realizamos la consulta a la base de datos
+    models.Quiz.findById(quizId, {
+        include: [
+            models.Tip,
+            {model: models.User, as: 'Author'}
+            ]
+    })//Realizamos la consulta a la base de datos
         .then(function (quiz) {//que nos devuelve un quiz, que es el que pasamos como parametro en la peticion
             if(quiz){
                 req.quiz = quiz;
@@ -48,6 +53,7 @@ exports.index = function (req, res, next) {
 
             findOptions.offset = itmes_per_page*(pageno-1);
             findOptions.limit = itmes_per_page;
+            findOptions.include = [{model: models.User, as: 'Author'}];
             return models.Quiz.findAll(findOptions);
         })
         .then(function (quizzes) {
@@ -213,7 +219,10 @@ exports.randomplay = function (req, res, next) {
                 where: whereopt,
                 offset: aleatorio,
                 limit: 1,
-                include: [ models.Tip ]
+                include: [
+                    models.Tip,
+                    {model: models.User, as: 'Author'}
+                ]
             };
             return models.Quiz.findAll(findOptions);
         })

@@ -7,6 +7,10 @@
 
 </div>
 
+<div class="right">
+    <small> (by <%= quiz.Author ? quiz.Author.username : "Anómino" %>) </small>
+</div>
+
 <form method="get" action="/quizzes/randomcheck/<%= quiz.id %>">
 
     <p>

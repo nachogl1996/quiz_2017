@@ -30,6 +30,11 @@ var User = sequelize.import(path.join(__dirname,'user'));
 Tip.belongsTo(Quiz);//Un Tip solo puede pertenecer a un QUiz
 Quiz.hasMany(Tip);//Un Quiz puede tener varios Tip.
 
+//Relaciones entre Quiz y Users. Un quiz solo puede tener un autor, pero un user puede tener varios quizzes.
+User.hasMany(Quiz, {foreignKey: 'AuthorId'}); //AuthorId coincide con la clave externa
+Quiz.belongsTo(User, {as: 'Author', foreignKey: 'AuthorId'});//Author es la funcion.
+
+
 exports.Quiz = Quiz; // exportar definición de tabla Quiz
 exports.Tip = Tip; // exportar definición de tabla Tips
 exports.User = User;
