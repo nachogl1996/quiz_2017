@@ -165,7 +165,7 @@ exports.destroy = function (req, res, next) {
     req.user.destroy()
         .then(function () {
             req.flash('success', 'Usuario eliminado con éxito.');
-            res.redirect('/');
+            res.redirect('/goback');
         })
         .catch(function (error) {
             next(error);

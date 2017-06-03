@@ -9,6 +9,23 @@ var sessionController = require('../controllers/session_controller');
 // autologout
 router.all('*',sessionController.deleteExpiredUserSession);
 
+// History
+
+function redirectBack(req, res, next) {
+
+    var url = req.session.backURL || "/";
+    delete req.session.backURL;
+    res.redirect(url);
+}
+
+router.get('/goback', redirectBack);
+
+// Rutas GET que no acaban en /new, /edit, /play, /check, /session, o /:id.
+router.get(/(?!\/new$|\/edit$|\/play$|\/check$|\/session$|\/(\d+)$)\/[^\/]*$/, function (req, res, next) {
+
+    req.session.backURL = req.url;
+    next();
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

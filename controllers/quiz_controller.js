@@ -42,13 +42,13 @@ exports.index = function (req, res, next) {
         countOptions.where = {question: {like: search_like}};
     }
     if(req.user){//Si se accede mediante /user/id/quizzes
-        console.log("aaaaaaaaaa");
+
         countOptions.where.AuthorId = req.user.id;
         title = "Preguntas de " + req.user.username;
     }
     models.Quiz.count(countOptions)
         .then(function (count) {
-            console.log(count);
+
             //Elemento para paginacion
             var itmes_per_page = 10;
             //Extraemos el num de pagina a mostrar que viene en la query
@@ -158,7 +158,7 @@ exports.destroy = function (req, res, next) {
    req.quiz.destroy()//Destruimos el quiz de la BBDD
        .then(function () {
            req.flash('success', 'Quiz borrado con exito.');
-           res.redirect('/quizzes');//Volvemos al index de quizzes
+           res.redirect('/goback');
        })
        .catch(function (error) {
            req.flash('error', 'Error al borrar el Quiz' + error.message);
