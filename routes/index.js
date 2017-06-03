@@ -64,24 +64,24 @@ router.delete('/session', sessionController.destroy); // destruir sesión
 
 
 // Definición de rutas de cuenta
-router.get('/users',                    userController.index);   // listado usuarios
-router.get('/users/:userId(\\d+)',      userController.show);    // ver un usuario
+router.get('/users',                    sessionController.loginRequired, userController.index);   // listado usuarios
+router.get('/users/:userId(\\d+)',      sessionController.loginRequired, userController.show);    // ver un usuario
 router.get('/users/new',                userController.new);     // formulario sign un
 router.post('/users',                   userController.create);  // registrar usuario
-router.get('/users/:userId(\\d+)/edit', userController.edit);     // editar información de cuenta
-router.put('/users/:userId(\\d+)',      userController.update);   // actualizar información de cuenta
-router.delete('/users/:userId(\\d+)',   userController.destroy);  // borrar cuenta
+router.get('/users/:userId(\\d+)/edit', sessionController.loginRequired, sessionController.loginRequired, userController.edit);     // editar información de cuenta
+router.put('/users/:userId(\\d+)',      sessionController.loginRequired, userController.update);   // actualizar información de cuenta
+router.delete('/users/:userId(\\d+)',   sessionController.loginRequired, userController.destroy);  // borrar cuenta
 
 router.get('/users/:userId(\\d+)/quizzes', quizController.index);     // ver las preguntas de un usuario
 
 //Definicion de rutas de /quizzes
 router.get('/quizzes', quizController.index); //Cuando llega una peticion para quizcontroller
 router.get('/quizzes/:quizId(\\d+)', quizController.show);//Cuando se pide ver una pregunta
-router.get('/quizzes/new', quizController.new);//cuando se quiere crear un nuevo quiz
-router.post('/quizzes', quizController.create);//Cuando se quiere subir un nuevo quiz
-router.get('/quizzes/:quizId(\\d+)/edit', quizController.edit);//cuando se quiere editar un quizz
-router.put('/quizzes/:quizId(\\d+)', quizController.update);
-router.delete('/quizzes/:quizId(\\d+)', quizController.destroy); //Funcion de eliminar una pregunta
+router.get('/quizzes/new', sessionController.loginRequired, quizController.new);//cuando se quiere crear un nuevo quiz
+router.post('/quizzes', sessionController.loginRequired, quizController.create);//Cuando se quiere subir un nuevo quiz
+router.get('/quizzes/:quizId(\\d+)/edit', sessionController.loginRequired, quizController.edit);//cuando se quiere editar un quizz
+router.put('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizController.update);
+router.delete('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizController.destroy); //Funcion de eliminar una pregunta
 
 router.get('/quizzes/:quizId(\\d+)/play', quizController.play);//Se empieza a jugar
 router.get('/quizzes/:quizId(\\d+)/check', quizController.check);//Para comprobar si hemos acertado
@@ -92,7 +92,7 @@ router.get('/quizzes/randomplay', quizController.randomplay);
 router.get('/quizzes/randomcheck/:quizId(\\d+)', quizController.randomcheck);
 
 //Definicion de las rutas de tipcontroller
-router.post('/quizzes/:quizId(\\d+)/tips', tipController.create);
+router.post('/quizzes/:quizId(\\d+)/tips', sessionController.loginRequired, tipController.create);
 
 
 module.exports = router;

@@ -23,10 +23,13 @@
     Pistas:
 </h1>
 
+<% if (session.user) { %>
 <% include ../tips/new %>
+<% } %>
 
 <% var tips = quiz.Tips; %>
 
 <% include ../tips/index %>
 
 
+<a href="/quizzes"><button>Volver</button></a>
