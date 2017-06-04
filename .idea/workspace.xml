@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac19d4ed-d729-447b-82a9-4f9239d1d2bb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/quiz_controller.js" afterPath="$PROJECT_DIR$/controllers/quiz_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/session_controller.js" afterPath="$PROJECT_DIR$/controllers/session_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/tip_controller.js" afterPath="$PROJECT_DIR$/controllers/tip_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/tip.js" afterPath="$PROJECT_DIR$/models/tip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/index.ejs" afterPath="$PROJECT_DIR$/views/quizzes/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/play.ejs" afterPath="$PROJECT_DIR$/views/quizzes/play.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/random_play.ejs" afterPath="$PROJECT_DIR$/views/quizzes/random_play.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/show.ejs" afterPath="$PROJECT_DIR$/views/quizzes/show.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tips/index.ejs" afterPath="$PROJECT_DIR$/views/tips/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/users/index.ejs" afterPath="$PROJECT_DIR$/views/users/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/users/show.ejs" afterPath="$PROJECT_DIR$/views/users/show.ejs" />
-    </list>
+    <list default="true" id="ac19d4ed-d729-447b-82a9-4f9239d1d2bb" name="Default" comment="" />
     <list id="fea5622d-311a-4dc8-a10a-d81d5fcd0f40" name="vuelta" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,27 +16,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/users/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/quizzes/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="session_controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="session_controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/session_controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="310">
@@ -63,11 +28,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/users/show.ejs">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+            <state relative-caret-position="353">
+              <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="421">
+              <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -186,7 +161,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -304,12 +279,12 @@
       <workItem from="1496427125849" duration="2527000" />
       <workItem from="1496475936899" duration="9052000" />
       <workItem from="1496502920744" duration="8385000" />
-      <workItem from="1496562777960" duration="1557000" />
+      <workItem from="1496562777960" duration="2155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52213000" />
+    <option name="totallyTimeSpent" value="52811000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -568,20 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -726,10 +687,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/users/show.ejs">
+    <entry file="file://$PROJECT_DIR$/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+        <state relative-caret-position="353">
+          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -757,6 +718,22 @@
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/users/show.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
