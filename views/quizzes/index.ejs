@@ -20,6 +20,7 @@
             <small> (by <%= quiz.Author ? quiz.Author.username : "Anómino" %>) </small>
         </td>
         <% if (session.user) { %>
+        <% if (session.user.isAdmin || session.user.id === quiz.AuthorId) { %>
         <td>
             <a href="/quizzes/<%= quiz.id %>"><button>ver</button></a>
         </td>
@@ -32,6 +33,7 @@
                 <button>borrar</button>
             </a>
         </td>
+        <% } %>
         <% } %>
     </tr>
     <% } %>

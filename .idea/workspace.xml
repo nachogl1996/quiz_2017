@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac19d4ed-d729-447b-82a9-4f9239d1d2bb" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/quiz_controller.js" afterPath="$PROJECT_DIR$/controllers/quiz_controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/session_controller.js" afterPath="$PROJECT_DIR$/controllers/session_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/tip_controller.js" afterPath="$PROJECT_DIR$/controllers/tip_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/tip.js" afterPath="$PROJECT_DIR$/models/tip.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.ejs" afterPath="$PROJECT_DIR$/views/layout.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/index.ejs" afterPath="$PROJECT_DIR$/views/quizzes/index.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/play.ejs" afterPath="$PROJECT_DIR$/views/quizzes/play.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/random_play.ejs" afterPath="$PROJECT_DIR$/views/quizzes/random_play.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/quizzes/show.ejs" afterPath="$PROJECT_DIR$/views/quizzes/show.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tips/index.ejs" afterPath="$PROJECT_DIR$/views/tips/index.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/users/index.ejs" afterPath="$PROJECT_DIR$/views/users/index.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/users/show.ejs" afterPath="$PROJECT_DIR$/views/users/show.ejs" />
     </list>
@@ -25,31 +31,43 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="quiz_controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/quiz_controller.js">
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/users/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="168" column="2" lean-forward="true" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="2" />
+            <state relative-caret-position="232">
+              <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/quizzes/play.ejs">
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/quizzes/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+            <state relative-caret-position="97">
+              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random_play.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/quizzes/random_play.ejs">
+      <file leaf-file-name="session_controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/session_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="34" column="10" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            <state relative-caret-position="310">
+              <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/users/show.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -81,10 +99,7 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/helpers/paginate.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/models/tip.js" />
         <option value="$PROJECT_DIR$/migrations/20170602171641-CreateTipsTable.js" />
-        <option value="$PROJECT_DIR$/controllers/tip_controller.js" />
-        <option value="$PROJECT_DIR$/views/tips/index.ejs" />
         <option value="$PROJECT_DIR$/views/tips/new.ejs" />
         <option value="$PROJECT_DIR$/models/users.js" />
         <option value="$PROJECT_DIR$/migrations/20170603083419-CreateUsersTable.js" />
@@ -97,20 +112,24 @@
         <option value="$PROJECT_DIR$/models/index.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/controllers/user_controller.js" />
-        <option value="$PROJECT_DIR$/controllers/quiz_controller.js" />
         <option value="$PROJECT_DIR$/views/users/_form.ejs" />
         <option value="$PROJECT_DIR$/views/quizzes/_form.ejs" />
         <option value="$PROJECT_DIR$/views/quizzes/result.ejs" />
         <option value="$PROJECT_DIR$/views/quizzes/random_none.ejs" />
-        <option value="$PROJECT_DIR$/views/quizzes/random_play.ejs" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/controllers/session_controller.js" />
         <option value="$PROJECT_DIR$/views/layout.ejs" />
+        <option value="$PROJECT_DIR$/models/tip.js" />
+        <option value="$PROJECT_DIR$/migrations/20170603172739-AddAcceptedToTipsTable.js" />
+        <option value="$PROJECT_DIR$/controllers/tip_controller.js" />
+        <option value="$PROJECT_DIR$/views/tips/index.ejs" />
+        <option value="$PROJECT_DIR$/views/quizzes/random_play.ejs" />
+        <option value="$PROJECT_DIR$/controllers/quiz_controller.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/quizzes/index.ejs" />
-        <option value="$PROJECT_DIR$/views/quizzes/show.ejs" />
         <option value="$PROJECT_DIR$/views/quizzes/play.ejs" />
-        <option value="$PROJECT_DIR$/views/users/index.ejs" />
+        <option value="$PROJECT_DIR$/views/quizzes/show.ejs" />
         <option value="$PROJECT_DIR$/views/users/show.ejs" />
+        <option value="$PROJECT_DIR$/views/users/index.ejs" />
+        <option value="$PROJECT_DIR$/controllers/session_controller.js" />
       </list>
     </option>
   </component>
@@ -167,25 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quiz_2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quiz_2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quizzes" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,12 +303,13 @@
       <workItem from="1496422213066" duration="2135000" />
       <workItem from="1496427125849" duration="2527000" />
       <workItem from="1496475936899" duration="9052000" />
-      <workItem from="1496502920744" duration="6158000" />
+      <workItem from="1496502920744" duration="8385000" />
+      <workItem from="1496562777960" duration="1557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48429000" />
+    <option name="totallyTimeSpent" value="52213000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,8 +322,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="706" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -379,14 +382,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/quizzes/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -435,7 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -504,13 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/tip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="2" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/quiz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -522,14 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tips/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -551,16 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="659">
           <caret line="49" column="2" lean-forward="false" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/tip_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="43" column="11" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,7 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="421">
           <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -618,7 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -626,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -634,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="2" lean-forward="false" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -642,7 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,7 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,7 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -674,7 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,20 +646,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user_controller.js">
+    <entry file="file://$PROJECT_DIR$/migrations/20170603172739-AddAcceptedToTipsTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="172" column="2" lean-forward="true" selection-start-line="172" selection-start-column="2" selection-end-line="172" selection-end-column="2" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/tip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/tip_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="89" column="2" lean-forward="false" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/session_controller.js">
+    <entry file="file://$PROJECT_DIR$/views/tips/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/quizzes/random_play.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="172" column="2" lean-forward="true" selection-start-line="172" selection-start-column="2" selection-end-line="172" selection-end-column="2" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
@@ -708,65 +697,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="94" column="76" lean-forward="false" selection-start-line="94" selection-start-column="76" selection-end-line="94" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="422">
+          <caret line="98" column="74" lean-forward="false" selection-start-line="98" selection-start-column="74" selection-end-line="98" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/quizzes/index.ejs">
+    <entry file="file://$PROJECT_DIR$/controllers/quiz_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="41" column="7" lean-forward="false" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+        <state relative-caret-position="556">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/quizzes/show.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="46" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/users/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/users/show.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="59" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/quiz_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="168" column="2" lean-forward="true" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="2" />
+        <state relative-caret-position="300">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/quizzes/play.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        <state relative-caret-position="532">
+          <caret line="36" column="46" lean-forward="false" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/quizzes/random_play.ejs">
+    <entry file="file://$PROJECT_DIR$/views/users/show.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="34" column="10" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="525">
+          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/users/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/quizzes/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/session_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
