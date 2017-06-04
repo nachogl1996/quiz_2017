@@ -8,7 +8,7 @@ var paginate = require('../helpers/paginate').paginate;
 exports.load = function (req, res, next, quizId) {//Incluimos un parametro en la peticion que es quiz, solo si existe
     models.Quiz.findById(quizId, {
         include: [
-            models.Tip,
+            {model: models.Tip, include: [{model: models.User, as : 'Author'}]},
             {model: models.User, as: 'Author'}
         ]
     })//Realizamos la consulta a la base de datos
@@ -95,6 +95,7 @@ exports.index = function (req, res, next) {
 exports.show=function (req, res, next) {
 
    res.render('quizzes/show', {quiz: req.quiz});
+
 };
 
 //GET /quizzes/new
