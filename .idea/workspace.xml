@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac19d4ed-d729-447b-82a9-4f9239d1d2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/tip_controller.js" afterPath="$PROJECT_DIR$/controllers/tip_controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tips/index.ejs" afterPath="$PROJECT_DIR$/views/tips/index.ejs" />
     </list>
     <list id="fea5622d-311a-4dc8-a10a-d81d5fcd0f40" name="vuelta" comment="" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/tips/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="11" column="96" lean-forward="false" selection-start-line="11" selection-start-column="96" selection-end-line="11" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -165,8 +164,8 @@
         <option value="$PROJECT_DIR$/models/index.js" />
         <option value="$PROJECT_DIR$/migrations/20170604090434-AddAuthortoTipTable.js" />
         <option value="$PROJECT_DIR$/controllers/quiz_controller.js" />
-        <option value="$PROJECT_DIR$/views/tips/index.ejs" />
         <option value="$PROJECT_DIR$/controllers/tip_controller.js" />
+        <option value="$PROJECT_DIR$/views/tips/index.ejs" />
       </list>
     </option>
   </component>
@@ -389,12 +388,12 @@
       <workItem from="1496663170277" duration="208000" />
       <workItem from="1496672167958" duration="3350000" />
       <workItem from="1496677209692" duration="456000" />
-      <workItem from="1496682210421" duration="1199000" />
+      <workItem from="1496682210421" duration="1714000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69631000" />
+    <option name="totallyTimeSpent" value="70146000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,8 +831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tips/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="165">
+          <caret line="11" column="96" lean-forward="false" selection-start-line="11" selection-start-column="96" selection-end-line="11" selection-end-column="96" />
           <folding />
         </state>
       </provider>
