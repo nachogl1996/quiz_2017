@@ -247,7 +247,7 @@ exports.randomplay = function (req, res, next) {
                 offset: aleatorio,
                 limit: 1,
                 include: [
-                    models.Tip,
+                    {model: models.Tip, include: [{model: models.User, as : 'Author'}]},
                     {model: models.User, as: 'Author'}
                 ]
             };
