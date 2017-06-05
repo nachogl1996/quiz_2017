@@ -59,7 +59,7 @@ exports.create= function (req, res, next) {
         QuizId: req.quiz.id,
         AuthorId: authorId
         });
-    tip.save()
+    tip.save({fields: ["text", "QuizId", "AuthorId"]})
         .then(function (tip) {
             req.flash('success', 'Pista creada con éxito por :' + tip.AuthorId);
 
