@@ -61,7 +61,7 @@ exports.create= function (req, res, next) {
         });
     tip.save({fields: ["text", "QuizId", "AuthorId"]})
         .then(function (tip) {
-            req.flash('success', 'Pista creada con éxito por :' + tip.AuthorId);
+            req.flash('success', 'Pista creada con éxito.');
 
             res.redirect("back");
         })
